@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Header from "./components/Header";
 
 const ease = [0.22, 1, 0.36, 1];
 
@@ -166,60 +167,7 @@ export default function Home() {
           NAVBAR
       ===================================================== */}
 
-      <motion.nav
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7, ease }}
-        className="sticky top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur-md"
-      >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
-
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/easy-academics-logo.png"
-              alt="Easy Academics"
-              width={190}
-              height={80}
-              priority
-              className="h-auto w-[190px]"
-            />
-          </Link>
-
-          <div className="hidden items-center gap-8 md:flex">
-
-            {[
-              ["Home", "/"],
-              ["About Us", "/about-us"],
-              ["Courses", "/courses"],
-              ["Achievements", "/achievements"],
-              ["Blog", "/blog"],
-            ].map(([name, href]) => (
-              <Link
-                key={name}
-                href={href}
-                className="group relative text-sm font-medium"
-              >
-                {name}
-
-                <span className="absolute -bottom-2 left-0 h-[2px] w-0 bg-[#FFD43A] transition-all duration-300 group-hover:w-full" />
-              </Link>
-            ))}
-
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              <Link
-                href="/contact"
-                className="rounded-full bg-[#062DA0] px-6 py-3 text-sm font-bold text-white transition hover:bg-black"
-              >
-                Contact Us
-              </Link>
-            </motion.div>
-
-          </div>
-        </div>
-      </motion.nav>
+     <Header />
 
 
       {/* =====================================================

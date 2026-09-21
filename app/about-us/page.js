@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Header from "../components/Header";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 50 },
@@ -54,70 +55,10 @@ export default function AboutUs() {
     <main className="overflow-hidden bg-white text-black">
 
       {/* =====================================================
-          NAVBAR
+          HEADER
       ===================================================== */}
 
-      <nav className="fixed left-0 right-0 top-0 z-50 border-b border-black/10 bg-white/90 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/easy-academics-logo.png"
-              alt="Easy Academics"
-              width={190}
-              height={80}
-              priority
-              className="h-auto w-[150px] md:w-[175px]"
-            />
-          </Link>
-
-          <div className="hidden items-center gap-8 md:flex">
-
-            <Link
-              href="/"
-              className="text-sm font-medium transition hover:text-[#062DA0]"
-            >
-              Home
-            </Link>
-
-            <Link
-              href="/about-us"
-              className="text-sm font-semibold text-[#062DA0]"
-            >
-              About Us
-            </Link>
-
-            <Link
-              href="/courses"
-              className="text-sm font-medium transition hover:text-[#062DA0]"
-            >
-              Courses
-            </Link>
-
-            <Link
-              href="/achievements"
-              className="text-sm font-medium transition hover:text-[#062DA0]"
-            >
-              Achievements
-            </Link>
-
-            <Link
-              href="/blog"
-              className="text-sm font-medium transition hover:text-[#062DA0]"
-            >
-              Blog
-            </Link>
-
-            <Link
-              href="/contact-us"
-              className="rounded-full bg-[#062DA0] px-6 py-3 text-sm font-semibold text-white transition hover:bg-black"
-            >
-              Contact Us
-            </Link>
-
-          </div>
-        </div>
-      </nav>
+      <Header />
 
 
       {/* =====================================================

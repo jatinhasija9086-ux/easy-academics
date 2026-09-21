@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Header from "../components/Header";
 
 const blogs = [
   {
@@ -142,61 +142,9 @@ export default function BlogPage() {
   return (
     <main className="min-h-screen bg-white text-black">
 
-      {/* ================= NAVBAR ================= */}
+      {/* ================= REUSABLE NAVBAR ================= */}
 
-      <motion.nav
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        className="sticky top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur-md"
-      >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
-
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/easy-academics-logo.png"
-              alt="Easy Academics"
-              width={190}
-              height={80}
-              priority
-              className="h-auto w-[190px]"
-            />
-          </Link>
-
-          <div className="hidden items-center gap-8 md:flex">
-
-            {[
-              ["Home", "/"],
-              ["About Us", "/about-us"],
-              ["Courses", "/courses"],
-              ["Achievements", "/achievements"],
-              ["Blog", "/blog"],
-            ].map(([name, href]) => (
-              <Link
-                key={name}
-                href={href}
-                className="group relative text-sm font-medium"
-              >
-                {name}
-
-                <span className="absolute -bottom-2 left-0 h-[2px] w-0 bg-[#FFD43A] transition-all duration-300 group-hover:w-full" />
-              </Link>
-            ))}
-
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              <Link
-                href="/contact"
-                className="rounded-full bg-[#062DA0] px-6 py-3 text-sm font-bold text-white transition hover:bg-black"
-              >
-                Contact Us
-              </Link>
-            </motion.div>
-
-          </div>
-        </div>
-      </motion.nav>
+      <Header />
 
 
       {/* ================= HERO ================= */}
@@ -251,6 +199,7 @@ export default function BlogPage() {
               variants={fadeUp}
               className="mt-10 max-w-3xl"
             >
+
               <h2 className="text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
                 THINK.
                 <br />
@@ -264,9 +213,11 @@ export default function BlogPage() {
                 learn better, think bigger and move confidently towards
                 their goals.
               </p>
+
             </motion.div>
 
           </motion.div>
+
         </div>
       </section>
 
@@ -284,7 +235,9 @@ export default function BlogPage() {
             viewport={{ once: true, amount: 0.2 }}
             className="mb-10 flex items-end justify-between gap-6"
           >
+
             <div>
+
               <p className="text-xs font-black uppercase tracking-[0.25em] text-[#FFD43A]">
                 Featured
               </p>
@@ -292,11 +245,13 @@ export default function BlogPage() {
               <h2 className="mt-3 text-4xl font-black sm:text-5xl">
                 Worth Reading.
               </h2>
+
             </div>
 
             <span className="hidden text-7xl font-black leading-none text-white/10 sm:block">
               01
             </span>
+
           </motion.div>
 
 
@@ -328,6 +283,7 @@ export default function BlogPage() {
               />
 
               <div className="relative z-10 text-center">
+
                 <div className="text-sm font-black uppercase tracking-[0.3em]">
                   Easy Academics
                 </div>
@@ -339,7 +295,9 @@ export default function BlogPage() {
                 <div className="mt-2 text-lg font-bold">
                   BEYOND THE CLASSROOM
                 </div>
+
               </div>
+
             </div>
 
 
@@ -348,9 +306,13 @@ export default function BlogPage() {
             <div className="flex flex-col justify-center p-8 sm:p-12 lg:p-16">
 
               <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-[#FFD43A]">
+
                 <span>Education</span>
+
                 <span className="h-1 w-1 rounded-full bg-[#FFD43A]" />
+
                 <span>12 Sep 2026</span>
+
               </div>
 
               <h3 className="mt-6 text-3xl font-black leading-tight sm:text-4xl lg:text-5xl">
@@ -367,6 +329,7 @@ export default function BlogPage() {
                 whileHover={{ x: 8 }}
                 className="mt-8"
               >
+
                 <Link
                   href="/blog"
                   className="inline-flex items-center gap-3 text-sm font-black uppercase tracking-[0.15em] text-[#FFD43A]"
@@ -374,12 +337,15 @@ export default function BlogPage() {
                   Read Article
                   <span className="text-xl">→</span>
                 </Link>
+
               </motion.div>
 
             </div>
 
           </motion.div>
+
         </div>
+
       </section>
 
 
@@ -399,6 +365,7 @@ export default function BlogPage() {
             viewport={{ once: true, amount: 0.2 }}
             className="mb-10"
           >
+
             <p className="text-xs font-black uppercase tracking-[0.25em] text-[#062DA0]">
               Latest Articles
             </p>
@@ -415,6 +382,7 @@ export default function BlogPage() {
               </p>
 
             </div>
+
           </motion.div>
 
 
@@ -427,7 +395,9 @@ export default function BlogPage() {
             viewport={{ once: true, amount: 0.2 }}
             className="mb-12 flex flex-wrap gap-3 border-y border-black/10 py-5"
           >
+
             {categories.map((category) => (
+
               <motion.button
                 key={category}
                 whileTap={{ scale: 0.95 }}
@@ -440,7 +410,9 @@ export default function BlogPage() {
               >
                 {category}
               </motion.button>
+
             ))}
+
           </motion.div>
 
 
@@ -455,6 +427,7 @@ export default function BlogPage() {
           >
 
             {filteredBlogs.map((blog) => (
+
               <motion.article
                 key={blog.id}
                 variants={fadeUp}
@@ -498,10 +471,13 @@ export default function BlogPage() {
 
 
                   <div className="absolute left-6 top-6 z-10">
+
                     <span className="rounded-full bg-white px-4 py-2 text-[10px] font-black uppercase tracking-[0.15em]">
                       {blog.tag}
                     </span>
+
                   </div>
+
 
                   <div className="absolute bottom-[-8px] right-5 z-10 text-[110px] font-black leading-none tracking-[-0.1em] text-black/10">
                     {blog.number}
@@ -515,14 +491,20 @@ export default function BlogPage() {
                 <div className="p-7">
 
                   <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.12em] text-black/40">
+
                     <span>{blog.category}</span>
+
                     <span className="h-1 w-1 rounded-full bg-[#FFD43A]" />
+
                     <span>{blog.date}</span>
+
                   </div>
+
 
                   <h3 className="mt-4 text-2xl font-black leading-tight">
                     {blog.title}
                   </h3>
+
 
                   <p className="mt-4 text-sm leading-6 text-black/55">
                     {blog.excerpt}
@@ -533,6 +515,7 @@ export default function BlogPage() {
                     whileHover={{ x: 6 }}
                     className="mt-7"
                   >
+
                     <Link
                       href="/blog"
                       className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.12em] text-[#062DA0]"
@@ -540,11 +523,13 @@ export default function BlogPage() {
                       Read More
                       <span>→</span>
                     </Link>
+
                   </motion.div>
 
                 </div>
 
               </motion.article>
+
             ))}
 
           </motion.div>
@@ -553,7 +538,9 @@ export default function BlogPage() {
           {/* Empty State */}
 
           {filteredBlogs.length === 0 && (
+
             <div className="py-20 text-center">
+
               <p className="text-lg font-bold">
                 No articles found in this category.
               </p>
@@ -564,10 +551,13 @@ export default function BlogPage() {
               >
                 View All Articles
               </button>
+
             </div>
+
           )}
 
         </div>
+
       </section>
 
 
@@ -610,12 +600,14 @@ export default function BlogPage() {
                 whileTap={{ scale: 0.97 }}
                 className="mt-8 inline-block"
               >
+
                 <Link
                   href="/contact"
                   className="inline-flex rounded-full bg-[#062DA0] px-7 py-4 text-sm font-black text-white transition hover:bg-black"
                 >
                   Talk To Us →
                 </Link>
+
               </motion.div>
 
             </div>
@@ -633,11 +625,15 @@ export default function BlogPage() {
         id="contact"
         className="bg-black px-5 pb-10 text-white sm:px-8 lg:px-10"
       >
+
         <div className="mx-auto max-w-7xl border-t border-white/15 pt-10">
 
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
 
+            {/* Brand */}
+
             <div>
+
               <div className="text-2xl font-black tracking-tight">
                 EASY{" "}
                 <span className="text-[#FFD43A]">
@@ -649,10 +645,14 @@ export default function BlogPage() {
                 A leading coaching institute in Udaipur focused on academic
                 excellence and meaningful student growth.
               </p>
+
             </div>
 
 
+            {/* Explore */}
+
             <div>
+
               <h4 className="text-xs font-black uppercase tracking-[0.2em] text-[#FFD43A]">
                 Explore
               </h4>
@@ -688,10 +688,14 @@ export default function BlogPage() {
                 </Link>
 
               </div>
+
             </div>
 
 
+            {/* Programmes */}
+
             <div>
+
               <h4 className="text-xs font-black uppercase tracking-[0.2em] text-[#FFD43A]">
                 Programmes
               </h4>
@@ -705,10 +709,14 @@ export default function BlogPage() {
                 <span>CUET Preparation</span>
 
               </div>
+
             </div>
 
 
+            {/* Contact */}
+
             <div>
+
               <h4 className="text-xs font-black uppercase tracking-[0.2em] text-[#FFD43A]">
                 Contact
               </h4>
@@ -722,7 +730,9 @@ export default function BlogPage() {
                   78779 73935
                 </a>
 
-                <span>Udaipur, Rajasthan</span>
+                <span>
+                  Udaipur, Rajasthan
+                </span>
 
                 <a
                   href="https://instagram.com/academicseasy"
@@ -734,6 +744,7 @@ export default function BlogPage() {
                 </a>
 
               </div>
+
             </div>
 
           </div>
@@ -752,6 +763,7 @@ export default function BlogPage() {
           </div>
 
         </div>
+
       </footer>
 
     </main>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import Header from "../components/Header";
 
 /* =========================================================
    DATA
@@ -200,8 +201,7 @@ function AnimatedNumber({ value, suffix = "" }) {
         1
       );
 
-      const eased =
-        1 - Math.pow(1 - progress, 4);
+      const eased = 1 - Math.pow(1 - progress, 4);
 
       start = Math.floor(eased * value);
 
@@ -232,62 +232,10 @@ export default function AchievementsPage() {
     <main className="min-h-screen overflow-hidden bg-white text-black">
 
       {/* =====================================================
-          NAVBAR
+          HEADER
       ===================================================== */}
 
-      <motion.nav
-  initial={{ y: -80, opacity: 0 }}
-  animate={{ y: 0, opacity: 1 }}
-  className="sticky top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur-md"
->
-  <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
-
-    <Link href="/" className="flex items-center">
-      <Image
-        src="/easy-academics-logo.png"
-        alt="Easy Academics"
-        width={190}
-        height={80}
-        priority
-        className="h-auto w-[190px]"
-      />
-    </Link>
-
-    <div className="hidden items-center gap-8 md:flex">
-
-      {[
-        ["Home", "/"],
-        ["About Us", "/about-us"],
-        ["Courses", "/courses"],
-        ["Achievements", "/achievements"],
-        ["Blog", "/blog"],
-      ].map(([name, href]) => (
-        <Link
-          key={name}
-          href={href}
-          className="group relative text-sm font-medium"
-        >
-          {name}
-
-          <span className="absolute -bottom-2 left-0 h-[2px] w-0 bg-[#FFD43A] transition-all duration-300 group-hover:w-full" />
-        </Link>
-      ))}
-
-      <motion.div
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.97 }}
-      >
-        <Link
-          href="/contact"
-          className="rounded-full bg-[#062DA0] px-6 py-3 text-sm font-bold text-white transition hover:bg-black"
-        >
-          Contact Us
-        </Link>
-      </motion.div>
-
-    </div>
-  </div>
-</motion.nav>
+      <Header />
 
 
       {/* =====================================================
@@ -484,13 +432,9 @@ export default function AchievementsPage() {
                   duration: 0.7,
                 }}
                 className={`border-b border-white/20 px-4 py-10 sm:border-b-0 sm:px-7 ${
-                  index !== 3
-                    ? "sm:border-r"
-                    : ""
+                  index !== 3 ? "sm:border-r" : ""
                 } ${
-                  index >= 2
-                    ? "border-t sm:border-t-0"
-                    : ""
+                  index >= 2 ? "border-t sm:border-t-0" : ""
                 }`}
               >
 

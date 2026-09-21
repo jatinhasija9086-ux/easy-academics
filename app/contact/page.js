@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import Header from "../components/Header";
 
 const faqs = [
   {
@@ -99,63 +99,10 @@ export default function ContactPage() {
     <main className="min-h-screen bg-white text-black">
 
       {/* ===================================================== */}
-      {/* NAVBAR — EXACT SAME AS ACHIEVEMENTS PAGE */}
+      {/* REUSABLE HEADER */}
       {/* ===================================================== */}
 
-      <motion.nav
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        className="sticky top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur-md"
-      >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
-
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/easy-academics-logo.png"
-              alt="Easy Academics"
-              width={190}
-              height={80}
-              priority
-              className="h-auto w-[190px]"
-            />
-          </Link>
-
-          <div className="hidden items-center gap-8 md:flex">
-
-            {[
-              ["Home", "/"],
-              ["About Us", "/about-us"],
-              ["Courses", "/courses"],
-              ["Achievements", "/achievements"],
-              ["Blog", "/blog"],
-            ].map(([name, href]) => (
-              <Link
-                key={name}
-                href={href}
-                className="group relative text-sm font-medium"
-              >
-                {name}
-
-                <span className="absolute -bottom-2 left-0 h-[2px] w-0 bg-[#FFD43A] transition-all duration-300 group-hover:w-full" />
-              </Link>
-            ))}
-
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              <Link
-                href="/contact"
-                className="rounded-full bg-[#062DA0] px-6 py-3 text-sm font-bold text-white transition hover:bg-black"
-              >
-                Contact Us
-              </Link>
-            </motion.div>
-
-          </div>
-        </div>
-      </motion.nav>
-
+      <Header />
 
       {/* ===================================================== */}
       {/* HERO */}
@@ -240,7 +187,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-
       {/* ===================================================== */}
       {/* CONTACT FORM + DETAILS */}
       {/* ===================================================== */}
@@ -249,7 +195,7 @@ export default function ContactPage() {
 
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.15fr_0.85fr]">
 
-          {/* ================= FORM ================= */}
+          {/* FORM */}
 
           <motion.div
             variants={fadeLeft}
@@ -279,7 +225,6 @@ export default function ContactPage() {
 
             </div>
 
-
             <form
               className="mt-10 space-y-6"
               onSubmit={(e) => e.preventDefault()}
@@ -304,7 +249,6 @@ export default function ContactPage() {
 
                 </div>
 
-
                 <div>
 
                   <label className="mb-2 block text-xs font-bold uppercase tracking-wider text-white/60">
@@ -322,7 +266,6 @@ export default function ContactPage() {
 
               </div>
 
-
               {/* Email */}
 
               <div>
@@ -338,7 +281,6 @@ export default function ContactPage() {
                 />
 
               </div>
-
 
               {/* Programme */}
 
@@ -389,7 +331,6 @@ export default function ContactPage() {
 
               </div>
 
-
               {/* Message */}
 
               <div>
@@ -405,7 +346,6 @@ export default function ContactPage() {
                 />
 
               </div>
-
 
               {/* Submit */}
 
@@ -426,8 +366,7 @@ export default function ContactPage() {
 
           </motion.div>
 
-
-          {/* ================= CONTACT DETAILS ================= */}
+          {/* CONTACT DETAILS */}
 
           <motion.div
             variants={fadeRight}
@@ -453,7 +392,6 @@ export default function ContactPage() {
 
             </div>
 
-
             <div className="mt-12 space-y-8">
 
               {/* CALL */}
@@ -473,7 +411,6 @@ export default function ContactPage() {
                 </p>
 
               </motion.a>
-
 
               {/* WHATSAPP */}
 
@@ -495,7 +432,6 @@ export default function ContactPage() {
 
               </motion.a>
 
-
               {/* INSTAGRAM */}
 
               <motion.a
@@ -515,7 +451,6 @@ export default function ContactPage() {
                 </p>
 
               </motion.a>
-
 
               {/* LOCATION */}
 
@@ -546,7 +481,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-
       {/* ===================================================== */}
       {/* WHY CONTACT US */}
       {/* ===================================================== */}
@@ -575,7 +509,6 @@ export default function ContactPage() {
             </h2>
 
           </motion.div>
-
 
           <motion.div
             variants={stagger}
@@ -637,7 +570,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-
       {/* ===================================================== */}
       {/* GOOGLE MAP */}
       {/* ===================================================== */}
@@ -673,7 +605,6 @@ export default function ContactPage() {
 
           </motion.div>
 
-
           {/* MAP CONTAINER */}
 
           <motion.div
@@ -698,7 +629,6 @@ export default function ContactPage() {
               title="Easy Academics Location"
               className="block w-full"
             />
-
 
             {/* MAP LOCATION CARD */}
 
@@ -730,7 +660,6 @@ export default function ContactPage() {
 
           </motion.div>
 
-
           {/* MAP ACTIONS */}
 
           <motion.div
@@ -756,7 +685,6 @@ export default function ContactPage() {
               Get Directions →
             </motion.a>
 
-
             <motion.a
               whileHover={{
                 scale: 1.03,
@@ -774,7 +702,6 @@ export default function ContactPage() {
 
         </div>
       </section>
-
 
       {/* ===================================================== */}
       {/* FAQ */}
@@ -801,7 +728,6 @@ export default function ContactPage() {
             </h2>
 
           </motion.div>
-
 
           <motion.div
             variants={stagger}
@@ -848,7 +774,6 @@ export default function ContactPage() {
 
                   </button>
 
-
                   <AnimatePresence initial={false}>
 
                     {isOpen && (
@@ -888,7 +813,6 @@ export default function ContactPage() {
 
         </div>
       </section>
-
 
       {/* ===================================================== */}
       {/* FINAL CTA */}
@@ -961,9 +885,8 @@ export default function ContactPage() {
 
       </section>
 
-
       {/* ===================================================== */}
-      {/* FOOTER — EXACT SAME AS ACHIEVEMENTS PAGE */}
+      {/* FOOTER */}
       {/* ===================================================== */}
 
       <footer
@@ -974,6 +897,8 @@ export default function ContactPage() {
         <div className="mx-auto max-w-7xl border-t border-white/15 pt-10">
 
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+
+            {/* BRAND */}
 
             <div>
 
@@ -991,6 +916,7 @@ export default function ContactPage() {
 
             </div>
 
+            {/* EXPLORE */}
 
             <div>
 
@@ -1028,10 +954,18 @@ export default function ContactPage() {
                   Achievements
                 </Link>
 
+                <Link
+                  href="/blog"
+                  className="transition-colors hover:text-white"
+                >
+                  Blog
+                </Link>
+
               </div>
 
             </div>
 
+            {/* PROGRAMMES */}
 
             <div>
 
@@ -1051,6 +985,7 @@ export default function ContactPage() {
 
             </div>
 
+            {/* CONTACT */}
 
             <div>
 
@@ -1067,7 +1002,9 @@ export default function ContactPage() {
                   78779 73935
                 </a>
 
-                <span>Udaipur, Rajasthan</span>
+                <span>
+                  Udaipur, Rajasthan
+                </span>
 
                 <a
                   href="https://instagram.com/academicseasy"
@@ -1084,6 +1021,7 @@ export default function ContactPage() {
 
           </div>
 
+          {/* FOOTER BOTTOM */}
 
           <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/30 sm:flex-row sm:items-center sm:justify-between">
 
