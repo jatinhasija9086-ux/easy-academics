@@ -22,18 +22,19 @@ export default function Header() {
 
   return (
     <motion.nav
-      initial={{ y: -80, opacity: 0 }}
+      initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.7, ease: "easeOut" }}
-      className="sticky top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur-md"
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="sticky top-0 z-50 w-full border-b border-black/10 bg-white"
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+      {/* HEADER BAR */}
+      <div className="mx-auto flex h-[72px] w-full max-w-7xl items-center justify-between px-5 sm:h-[78px] sm:px-6 lg:h-[88px] lg:px-8">
 
         {/* LOGO */}
         <Link
           href="/"
-          className="flex items-center"
           onClick={closeMenu}
+          className="flex h-full items-center"
         >
           <Image
             src="/easy-academics-logo.png"
@@ -41,7 +42,7 @@ export default function Header() {
             width={190}
             height={80}
             priority
-            className="h-auto w-[150px] sm:w-[170px] md:w-[190px]"
+            className="h-[52px] w-auto object-contain sm:h-[58px] lg:h-[68px]"
           />
         </Link>
 
@@ -77,38 +78,42 @@ export default function Header() {
         {/* MOBILE MENU BUTTON */}
         <button
           type="button"
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={() => setMenuOpen((prev) => !prev)}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white md:hidden"
+          aria-expanded={menuOpen}
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-black/15 bg-white md:hidden"
         >
-          <div className="flex w-5 flex-col gap-1.5">
+          <span className="flex w-5 flex-col gap-[5px]">
 
             <motion.span
               animate={
                 menuOpen
-                  ? { rotate: 45, y: 6 }
+                  ? { rotate: 45, y: 7 }
                   : { rotate: 0, y: 0 }
               }
-              className="block h-0.5 w-5 bg-black"
+              transition={{ duration: 0.2 }}
+              className="block h-[2px] w-5 origin-center rounded-full bg-black"
             />
 
             <motion.span
               animate={{
                 opacity: menuOpen ? 0 : 1,
               }}
-              className="block h-0.5 w-5 bg-black"
+              transition={{ duration: 0.15 }}
+              className="block h-[2px] w-5 rounded-full bg-black"
             />
 
             <motion.span
               animate={
                 menuOpen
-                  ? { rotate: -45, y: -6 }
+                  ? { rotate: -45, y: -7 }
                   : { rotate: 0, y: 0 }
               }
-              className="block h-0.5 w-5 bg-black"
+              transition={{ duration: 0.2 }}
+              className="block h-[2px] w-5 origin-center rounded-full bg-black"
             />
 
-          </div>
+          </span>
         </button>
 
       </div>
@@ -120,17 +125,17 @@ export default function Header() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
             className="overflow-hidden border-t border-black/10 bg-white md:hidden"
           >
-            <div className="flex flex-col px-6 py-5">
+            <div className="px-5 py-3 sm:px-6">
 
               {navItems.map(([name, href]) => (
                 <Link
                   key={name}
                   href={href}
                   onClick={closeMenu}
-                  className="border-b border-black/10 py-4 text-base font-semibold transition hover:text-[#062DA0]"
+                  className="block border-b border-black/10 py-4 text-base font-semibold transition-colors hover:text-[#062DA0]"
                 >
                   {name}
                 </Link>
@@ -139,7 +144,7 @@ export default function Header() {
               <Link
                 href="/contact"
                 onClick={closeMenu}
-                className="mt-5 rounded-full bg-[#062DA0] px-6 py-3 text-center text-sm font-bold text-white transition hover:bg-black"
+                className="my-4 block rounded-full bg-[#062DA0] px-6 py-3 text-center text-sm font-bold text-white transition hover:bg-black"
               >
                 Contact Us
               </Link>
