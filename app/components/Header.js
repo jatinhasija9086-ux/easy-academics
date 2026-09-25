@@ -11,9 +11,16 @@ export default function Header() {
   const navItems = [
     ["Home", "/"],
     ["About Us", "/about-us"],
-    //["Courses", "/courses"],
-    //["Achievements", "/achievements"],
     ["Blog", "/blog"],
+    ["Boards", "/boards"],
+    ["College & Universities", "/college-universities"],
+    ["Commerce", "/commerce"],
+    ["Easy Economics (Online)", "/easy-economics-online"],
+    ["Entrance Exams", "/entrance-exams"],
+    ["Junior-EA", "/junior-ea"],
+    ["Results", "/results"],
+    ["School Programs", "/school-programmes"],
+    ["Testimonials", "/testimonials"],
   ];
 
   const closeMenu = () => {
@@ -28,13 +35,13 @@ export default function Header() {
       className="sticky top-0 z-50 w-full border-b border-black/10 bg-white"
     >
       {/* HEADER BAR */}
-      <div className="mx-auto flex h-[72px] w-full max-w-7xl items-center justify-between px-5 sm:h-[78px] sm:px-6 lg:h-[88px] lg:px-8">
+      <div className="mx-auto flex h-[72px] w-full max-w-[1600px] items-center justify-between px-5 sm:h-[78px] sm:px-6 lg:h-[88px] lg:px-8">
 
         {/* LOGO */}
         <Link
           href="/"
           onClick={closeMenu}
-          className="flex h-full items-center"
+          className="flex h-full shrink-0 items-center"
         >
           <Image
             src="/easy-academics-logo.png"
@@ -47,13 +54,13 @@ export default function Header() {
         </Link>
 
         {/* DESKTOP NAVIGATION */}
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden min-w-0 flex-1 items-center justify-end gap-3 md:flex lg:gap-4 xl:gap-5">
 
           {navItems.map(([name, href]) => (
             <Link
               key={name}
               href={href}
-              className="group relative text-sm font-medium"
+              className="group relative shrink-0 whitespace-nowrap text-xs font-medium lg:text-sm"
             >
               {name}
 
@@ -61,13 +68,15 @@ export default function Header() {
             </Link>
           ))}
 
+          {/* CONTACT BUTTON */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
+            className="shrink-0"
           >
             <Link
               href="/contact"
-              className="rounded-full bg-[#062DA0] px-6 py-3 text-sm font-bold text-white transition hover:bg-black"
+              className="block whitespace-nowrap rounded-full bg-[#062DA0] px-5 py-3 text-xs font-bold text-white transition hover:bg-black lg:px-6 lg:text-sm"
             >
               Contact Us
             </Link>
