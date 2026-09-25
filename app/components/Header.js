@@ -11,8 +11,8 @@ export default function Header() {
   const navItems = [
     ["Home", "/"],
     ["About Us", "/about-us"],
-    ["Courses", "/courses"],
-    ["Achievements", "/achievements"],
+    //["Courses", "/courses"],
+    //["Achievements", "/achievements"],
     ["Blog", "/blog"],
   ];
 
