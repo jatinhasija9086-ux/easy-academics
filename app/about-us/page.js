@@ -1,336 +1,156 @@
+
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import Header from "../components/Header";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0, y: 35 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.7,
-      ease: "easeOut",
-    },
+    transition: { duration: 0.7, ease: "easeOut" },
   },
 };
 
 const fadeLeft = {
-  hidden: { opacity: 0, x: -60 },
+  hidden: { opacity: 0, x: -40 },
   visible: {
     opacity: 1,
     x: 0,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut",
-    },
+    transition: { duration: 0.7, ease: "easeOut" },
   },
 };
 
 const fadeRight = {
-  hidden: { opacity: 0, x: 60 },
+  hidden: { opacity: 0, x: 40 },
   visible: {
     opacity: 1,
     x: 0,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut",
-    },
+    transition: { duration: 0.7, ease: "easeOut" },
   },
 };
 
 const stagger = {
   hidden: {},
   visible: {
-    transition: {
-      staggerChildren: 0.12,
-    },
+    transition: { staggerChildren: 0.12 },
   },
 };
+
+/* FACULTY — 8 CARDS, NO NAMES */
+const faculty = [
+  { number: "01", subject: "ACCOUNTANCY SPECIALIST", image: "/images/faculty-1.jpg" },
+  { number: "02", subject: "BUSINESS STUDIES SPECIALIST", image: "/images/faculty-2.jpg" },
+  { number: "03", subject: "ECONOMICS SPECIALIST", image: "/images/faculty-3.jpg" },
+  { number: "04", subject: "MATHEMATICS SPECIALIST", image: "/images/faculty-4.jpg" },
+  { number: "05", subject: "SCIENCE SPECIALIST", image: "/images/faculty-5.jpg" },
+  { number: "06", subject: "ENGLISH SPECIALIST", image: "/images/faculty-6.jpg" },
+  { number: "07", subject: "FINANCIAL ACCOUNTING SPECIALIST", image: "/images/faculty-7.jpg" },
+  { number: "08", subject: "ACADEMIC GUIDANCE SPECIALIST", image: "/images/faculty-8.jpg" },
+];
+
+const benefits = [
+  {
+    number: "01",
+    title: "Conceptual Clarity",
+    description:
+      "Understand the fundamentals instead of relying only on memorisation.",
+  },
+  {
+    number: "02",
+    title: "Personal Attention",
+    description:
+      "An encouraging environment where questions and individual learning needs matter.",
+  },
+  {
+    number: "03",
+    title: "Structured Learning",
+    description:
+      "Follow a learning plan that supports consistency and academic progress.",
+  },
+  {
+    number: "04",
+    title: "Regular Practice",
+    description:
+      "Reinforce understanding through revision, questions and application.",
+  },
+  {
+    number: "05",
+    title: "Progress Tracking",
+    description:
+      "Identify areas for improvement and use feedback to guide the next steps.",
+  },
+  {
+    number: "06",
+    title: "Confidence Building",
+    description:
+      "Develop the confidence to approach subjects and examinations with clarity.",
+  },
+];
+
+const approach = [
+  {
+    number: "01",
+    title: "Understand",
+    description:
+      "Start with the student's learning needs, existing knowledge and academic goals.",
+  },
+  {
+    number: "02",
+    title: "Explain",
+    description:
+      "Break down topics into understandable concepts and build a strong foundation.",
+  },
+  {
+    number: "03",
+    title: "Practice",
+    description:
+      "Apply what has been learned through questions, exercises and revision.",
+  },
+  {
+    number: "04",
+    title: "Improve",
+    description:
+      "Review progress, resolve doubts and focus on areas that need further attention.",
+  },
+];
+
+const testimonials = [
+  {
+    number: "01",
+    quote:
+      "Add a genuine student testimonial here describing their experience at Easy Academics.",
+    name: "Student Name",
+    detail: "Course or Class",
+  },
+  {
+    number: "02",
+    quote:
+      "Add a genuine parent testimonial here describing their child's learning experience.",
+    name: "Parent Name",
+    detail: "Parent",
+  },
+  {
+    number: "03",
+    quote:
+      "Add a genuine student testimonial here about teaching, concept clarity or academic support.",
+    name: "Student Name",
+    detail: "Course or Class",
+  },
+];
 
 export default function AboutUs() {
   return (
     <main className="overflow-hidden bg-white text-black">
-
-      {/* =====================================================
-          HEADER
-      ===================================================== */}
-
+      {/* WEBSITE HEADER */}
       <Header />
 
-
-      {/* =====================================================
-          HERO
-      ===================================================== */}
-
-      <section className="relative min-h-[90vh] overflow-hidden bg-[#062DA0] pt-28">
-
-        {/* Background circles */}
-
-        <motion.div
-          animate={{
-            rotate: 360,
-          }}
-          transition={{
-            duration: 35,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute -right-40 top-20 h-[550px] w-[550px] rounded-full border border-white/10"
-        />
-
-        <motion.div
-          animate={{
-            rotate: -360,
-          }}
-          transition={{
-            duration: 45,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute -right-20 top-40 h-[400px] w-[400px] rounded-full border border-[#FFD43A]/20"
-        />
-
-        <div className="absolute left-[-100px] top-[30%] h-72 w-72 rounded-full bg-[#FFD43A] opacity-10 blur-3xl" />
-
-        <div className="relative mx-auto grid min-h-[75vh] max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-2">
-
-          {/* LEFT */}
-
-          <motion.div
-            variants={fadeLeft}
-            initial="hidden"
-            animate="visible"
-            className="relative z-10"
-          >
-
-            <div className="mb-7 flex items-center gap-3">
-
-              <span className="h-[2px] w-12 bg-[#FFD43A]" />
-
-              <p className="text-sm font-bold uppercase tracking-[0.3em] text-[#FFD43A]">
-                About Easy Academics
-              </p>
-
-            </div>
-
-            <h1 className="max-w-3xl text-5xl font-black leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-8xl">
-
-              Education
-
-              <br />
-
-              <span className="text-[#FFD43A]">
-                beyond
-              </span>
-
-              <br />
-
-              classrooms.
-
-            </h1>
-
-            <p className="mt-8 max-w-xl text-lg leading-8 text-white/70 md:text-xl">
-
-              A modern academic environment designed to help students
-              learn with clarity, grow with confidence and prepare for
-              the future.
-
-            </p>
-
-            <div className="mt-10 flex flex-wrap gap-4">
-
-              <Link
-                href="/courses"
-                className="rounded-full bg-[#FFD43A] px-8 py-4 font-bold text-black transition hover:-translate-y-1 hover:bg-white"
-              >
-                Explore Courses
-              </Link>
-
-              <Link
-                href="/contact-us"
-                className="rounded-full border border-white/30 px-8 py-4 font-bold text-white transition hover:bg-white hover:text-black"
-              >
-                Talk To Us
-              </Link>
-
-            </div>
-
-          </motion.div>
-
-
-          {/* RIGHT VISUAL */}
-
-          <motion.div
-            variants={fadeRight}
-            initial="hidden"
-            animate="visible"
-            className="relative flex min-h-[500px] items-center justify-center"
-          >
-
-            {/* Rotating outer ring */}
-
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{
-                duration: 30,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              className="absolute h-[390px] w-[390px] rounded-full border border-dashed border-[#FFD43A]/50 md:h-[500px] md:w-[500px]"
-            />
-
-            {/* Main circle */}
-
-            <div className="relative flex h-[300px] w-[300px] items-center justify-center rounded-full bg-white shadow-2xl md:h-[390px] md:w-[390px]">
-
-              <div className="absolute inset-5 rounded-full border-[3px] border-[#FFD43A]" />
-
-              <Image
-                src="/easy-academics-logo.png"
-                alt="Easy Academics"
-                width={260}
-                height={260}
-                className="relative z-10 w-[190px] md:w-[240px]"
-              />
-
-            </div>
-
-
-            {/* Floating card */}
-
-            <motion.div
-              animate={{ y: [0, -12, 0] }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute bottom-10 left-0 rounded-2xl bg-[#FFD43A] px-6 py-5 shadow-xl md:left-4"
-            >
-
-              <p className="text-xs font-bold uppercase tracking-wider">
-                Our Philosophy
-              </p>
-
-              <p className="mt-1 text-xl font-black">
-                Learn. Grow. Achieve.
-              </p>
-
-            </motion.div>
-
-
-            {/* Floating number */}
-
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{
-                duration: 3.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute right-0 top-20 rounded-2xl bg-black px-6 py-5 text-white shadow-xl md:right-2"
-            >
-
-              <p className="text-3xl font-black text-[#FFD43A]">
-                9–12
-              </p>
-
-              <p className="text-xs text-white/60">
-                Academic Classes
-              </p>
-
-            </motion.div>
-
-          </motion.div>
-
-        </div>
-
-
-        {/* Bottom wave */}
-
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-white [clip-path:ellipse(65%_100%_at_50%_100%)]" />
-
-      </section>
-
-
-      {/* =====================================================
-          INTRO
-      ===================================================== */}
-
-      <section className="relative px-6 py-24 md:py-32">
-
-        <div className="mx-auto max-w-7xl">
-
-          <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-
-            <motion.div
-              variants={fadeLeft}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-            >
-
-              <p className="text-sm font-bold uppercase tracking-[0.3em] text-[#062DA0]">
-                Who We Are
-              </p>
-
-              <h2 className="mt-5 text-5xl font-black leading-tight md:text-6xl">
-
-                More than
-                <br />
-
-                <span className="text-[#062DA0]">
-                  just coaching.
-                </span>
-
-              </h2>
-
-            </motion.div>
-
-
-            <motion.div
-              variants={fadeRight}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-            >
-
-              <p className="text-xl leading-9 text-gray-600 md:text-2xl">
-
-                Easy Academics is a student-focused coaching institute
-                based in Udaipur, Rajasthan. We believe that education
-                should not simply prepare students for examinations —
-                it should prepare them for the opportunities ahead.
-
-              </p>
-
-              <p className="mt-7 text-lg leading-8 text-gray-500">
-
-                Our approach combines academic discipline, conceptual
-                clarity, regular practice, personal guidance and
-                continuous assessment to create a stronger learning
-                experience.
-
-              </p>
-
-            </motion.div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =====================================================
-          PHILOSOPHY
-      ===================================================== */}
-
-      <section className="relative overflow-hidden bg-black px-6 py-24 md:py-32">
-
+      {/* 1. OUR STORY */}
+      <section
+        id="our-story"
+        className="relative overflow-hidden bg-[#062DA0] px-6 pb-24 pt-24 text-white md:pb-32 md:pt-32 scroll-mt-24"
+      >
         <motion.div
           animate={{ rotate: 360 }}
           transition={{
@@ -338,110 +158,181 @@ export default function AboutUs() {
             repeat: Infinity,
             ease: "linear",
           }}
-          className="absolute -right-40 top-20 h-[500px] w-[500px] rounded-full border border-white/10"
+          className="pointer-events-none absolute -right-40 top-20 h-[500px] w-[500px] rounded-full border border-white/10"
         />
 
-        <div className="relative mx-auto max-w-7xl">
+        <motion.div
+          animate={{ rotate: -360 }}
+          transition={{
+            duration: 35,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="pointer-events-none absolute -right-20 top-36 h-[350px] w-[350px] rounded-full border border-[#FFD43A]/30"
+        />
 
+        <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
           <motion.div
-            variants={fadeUp}
+            variants={fadeLeft}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            animate="visible"
           >
-
-            <p className="text-sm font-bold uppercase tracking-[0.3em] text-[#FFD43A]">
-              Our Philosophy
+            <p className="flex items-center gap-3 text-sm font-bold uppercase tracking-[0.25em] text-[#FFD43A]">
+              <span className="h-[2px] w-10 bg-[#FFD43A]" />
+              01 — Our Story
             </p>
 
-            <h2 className="mt-5 max-w-3xl text-5xl font-black leading-tight text-white md:text-7xl">
-
-              Simple principles.
+            <h1 className="mt-7 text-5xl font-black leading-[1.05] tracking-tight sm:text-6xl md:text-7xl">
+              Every student
               <br />
+              has the potential
+              <br />
+              to <span className="text-[#FFD43A]">achieve.</span>
+            </h1>
 
-              <span className="text-[#FFD43A]">
-                Serious results.
-              </span>
+            <p className="mt-7 max-w-xl text-lg leading-8 text-white/75">
+              Easy Academics is a student-focused academic institute in
+              Udaipur, Rajasthan, built around the belief that effective
+              education begins with clear concepts, consistent practice and
+              the right guidance.
+            </p>
 
-            </h2>
-
+            <p className="mt-4 max-w-xl leading-8 text-white/65">
+              Our focus is to help students strengthen their fundamentals,
+              approach learning with confidence and work towards their
+              academic goals through a structured learning experience.
+            </p>
           </motion.div>
-
 
           <motion.div
-            variants={stagger}
+            variants={fadeRight}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="mt-20 grid gap-5 md:grid-cols-4"
+            animate="visible"
+            className="relative flex min-h-[380px] items-center justify-center"
           >
+            <motion.div
+              animate={{ y: [0, -12, 0] }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="relative flex h-72 w-72 items-center justify-center rounded-full bg-[#FFD43A] p-5 shadow-2xl sm:h-96 sm:w-96"
+            >
+              <div className="flex h-full w-full items-center justify-center rounded-full border-2 border-[#062DA0] bg-white p-8 text-center">
+                <div>
+                  <p className="text-sm font-bold uppercase tracking-[0.25em] text-[#062DA0]">
+                    EASY ACADEMICS
+                  </p>
 
-            {[
-              {
-                number: "01",
-                title: "Learn",
-                text: "Build strong academic foundations.",
-              },
-              {
-                number: "02",
-                title: "Understand",
-                text: "Focus on concepts, not memorisation.",
-              },
-              {
-                number: "03",
-                title: "Practice",
-                text: "Turn knowledge into confidence.",
-              },
-              {
-                number: "04",
-                title: "Achieve",
-                text: "Work consistently towards your goals.",
-              },
-            ].map((item) => (
+                  <h2 className="mt-5 text-4xl font-black leading-tight text-black sm:text-5xl">
+                    Learn.
+                    <br />
+                    Grow.
+                    <br />
+                    <span className="text-[#062DA0]">Achieve.</span>
+                  </h2>
+                </div>
+              </div>
+            </motion.div>
 
-              <motion.div
-                key={item.number}
-                variants={fadeUp}
-                whileHover={{
-                  y: -10,
-                  borderColor: "#FFD43A",
-                }}
-                className="group border border-white/15 p-8 transition"
-              >
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute bottom-3 right-0 rounded-2xl bg-black px-5 py-4 shadow-xl sm:right-4"
+            >
+              <p className="text-xs uppercase tracking-wider text-white/60">
+                Our Belief
+              </p>
 
-                <span className="text-sm font-bold text-[#FFD43A]">
-                  {item.number}
-                </span>
-
-                <h3 className="mt-16 text-3xl font-black text-white">
-                  {item.title}
-                </h3>
-
-                <p className="mt-4 leading-7 text-white/50">
-                  {item.text}
-                </p>
-
-                <div className="mt-8 h-[2px] w-0 bg-[#FFD43A] transition-all duration-500 group-hover:w-full" />
-
-              </motion.div>
-
-            ))}
-
+              <p className="mt-1 font-bold text-[#FFD43A]">
+                Potential into Progress
+              </p>
+            </motion.div>
           </motion.div>
-
         </div>
-
       </section>
 
+      {/* 2. FOUNDER */}
+      <section
+        id="founder"
+        className="px-6 py-24 md:py-32 scroll-mt-24"
+      >
+        <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
+          <motion.div
+            variants={fadeLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.25 }}
+            className="relative flex justify-center"
+          >
+            <div className="relative flex aspect-square w-full max-w-[430px] items-center justify-center overflow-hidden rounded-[40%_40%_35%_35%] bg-[#062DA0] p-8">
+              <div className="absolute inset-5 rounded-[40%_40%_35%_35%] border border-[#FFD43A]/60" />
 
-      {/* =====================================================
-          WHY US
-      ===================================================== */}
+              <div className="relative text-center">
+                <span className="text-sm font-bold uppercase tracking-[0.3em] text-[#FFD43A]">
+                  The Founder
+                </span>
 
-      <section className="bg-[#FFD43A] px-6 py-24 md:py-32">
+                <h3 className="mt-5 text-4xl font-black text-white sm:text-5xl">
+                  Umang Khatri
+                </h3>
 
+                <p className="mt-3 text-white/65">
+                  Easy Academics
+                </p>
+              </div>
+
+              <div className="absolute -bottom-10 -right-10 h-36 w-36 rounded-full bg-[#FFD43A]" />
+            </div>
+          </motion.div>
+
+          <motion.div
+            variants={fadeRight}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.25 }}
+          >
+            <p className="text-sm font-bold uppercase tracking-[0.25em] text-[#062DA0]">
+              02 — Founder
+            </p>
+
+            <h2 className="mt-5 text-5xl font-black leading-tight md:text-6xl">
+              A vision for
+              <br />
+              <span className="text-[#062DA0]">
+                better learning.
+              </span>
+            </h2>
+
+            <div className="mt-7 h-1 w-20 bg-[#FFD43A]" />
+
+            <p className="mt-7 text-lg leading-8 text-gray-600">
+              Umang Khatri founded Easy Academics with a focus on creating a
+              supportive academic environment where students can strengthen
+              their understanding and work towards their goals.
+            </p>
+
+            <p className="mt-5 leading-8 text-gray-500">
+              The vision is to make learning more structured, approachable
+              and focused on genuine understanding, helping students develop
+              the knowledge and confidence they need for the next stage of
+              their education.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 3. FACULTY */}
+      <section
+        id="faculty"
+        className="bg-[#F7F8FC] px-6 py-24 md:py-32 scroll-mt-24"
+      >
         <div className="mx-auto max-w-7xl">
-
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -449,333 +340,261 @@ export default function AboutUs() {
             viewport={{ once: true }}
             className="max-w-3xl"
           >
-
-            <p className="text-sm font-bold uppercase tracking-[0.3em]">
-              Why Easy Academics
+            <p className="text-sm font-bold uppercase tracking-[0.25em] text-[#062DA0]">
+              03 — Faculty
             </p>
 
             <h2 className="mt-5 text-5xl font-black leading-tight md:text-7xl">
-              Designed around
+              Guidance that
               <br />
-              the student.
+              supports <span className="text-[#062DA0]">growth.</span>
             </h2>
 
+            <p className="mt-6 text-lg leading-8 text-gray-500">
+              Strong academic guidance starts with clear explanations,
+              subject understanding and a commitment to student progress.
+            </p>
           </motion.div>
 
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+          >
+            {faculty.map((item) => (
+              <motion.article
+                key={item.number}
+                variants={fadeUp}
+                whileHover={{ y: -7 }}
+                className="group overflow-hidden rounded-3xl border border-gray-100 bg-white transition-shadow duration-300 hover:shadow-xl"
+              >
+                <div className="relative h-64 overflow-hidden bg-[#E9EDF6] sm:h-60 lg:h-64">
+                  <img
+                    src={item.image}
+                    alt={item.subject}
+                    loading="lazy"
+                    className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  />
+
+                  <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#FFD43A] text-sm font-black text-[#062DA0] shadow-md">
+                    {item.number}
+                  </div>
+
+                  <div className="absolute bottom-0 left-0 h-1.5 w-0 bg-[#FFD43A] transition-all duration-500 group-hover:w-full" />
+                </div>
+
+                <div className="flex min-h-[145px] flex-col p-6">
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400">
+                    Subject Expertise
+                  </p>
+
+                  <h3 className="mt-3 text-xl font-black leading-snug text-black transition-colors duration-300 group-hover:text-[#062DA0]">
+                    {item.subject}
+                  </h3>
+
+                  <div className="mt-auto pt-5">
+                    <div className="h-1 w-12 bg-[#FFD43A] transition-all duration-300 group-hover:w-24" />
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 4. WHY EASY ACADEMICS? */}
+      <section
+        id="why-easy-academics"
+        className="bg-[#FFD43A] px-6 py-24 md:py-32 scroll-mt-24"
+      >
+        <div className="mx-auto max-w-7xl">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="max-w-3xl"
+          >
+            <p className="text-sm font-bold uppercase tracking-[0.25em]">
+              04 — Why Easy Academics?
+            </p>
+
+            <h2 className="mt-5 text-5xl font-black leading-tight md:text-7xl">
+              Learning with
+              <br />
+              <span className="text-[#062DA0]">
+                a clear purpose.
+              </span>
+            </h2>
+
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-black/65">
+              A learning environment built around understanding, consistency
+              and the support students need to make progress.
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          >
+            {benefits.map((item) => (
+              <motion.article
+                key={item.number}
+                variants={fadeUp}
+                whileHover={{ y: -7 }}
+                className="rounded-3xl bg-white p-8 transition-shadow duration-300 hover:shadow-xl"
+              >
+                <span className="text-sm font-black text-[#062DA0]">
+                  {item.number}
+                </span>
+
+                <h3 className="mt-8 text-2xl font-black">
+                  {item.title}
+                </h3>
+
+                <p className="mt-4 leading-7 text-gray-600">
+                  {item.description}
+                </p>
+              </motion.article>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 5. OUR APPROACH */}
+      <section
+        id="our-approach"
+        className="relative overflow-hidden bg-black px-6 py-24 text-white md:py-32 scroll-mt-24"
+      >
+        <div className="pointer-events-none absolute -left-40 top-20 h-96 w-96 rounded-full bg-[#062DA0]/30 blur-3xl" />
+
+        <div className="relative mx-auto max-w-7xl">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="max-w-3xl"
+          >
+            <p className="text-sm font-bold uppercase tracking-[0.25em] text-[#FFD43A]">
+              05 — Our Approach
+            </p>
+
+            <h2 className="mt-5 text-5xl font-black leading-tight md:text-7xl">
+              Learn with clarity.
+              <br />
+              <span className="text-[#FFD43A]">
+                Progress with purpose.
+              </span>
+            </h2>
+
+            <p className="mt-6 text-lg leading-8 text-white/60">
+              Our learning approach follows a structured process that helps
+              students build understanding, practise consistently and improve
+              step by step.
+            </p>
+          </motion.div>
 
           <motion.div
             variants={stagger}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3"
+            className="mt-14"
           >
-
-            {[
-              ["01", "Expert Guidance", "Structured teaching designed around academic requirements."],
-              ["02", "Personal Attention", "A learning environment where students can ask and improve."],
-              ["03", "Concept Clarity", "Understanding concepts before moving towards advanced learning."],
-              ["04", "Regular Assessment", "Continuous testing and feedback to track progress."],
-              ["05", "Doubt Solving", "Dedicated support to overcome difficult topics."],
-              ["06", "Career Direction", "Helping students make better academic decisions."],
-            ].map(([number, title, text]) => (
-
-              <motion.div
-                key={number}
+            {approach.map((item) => (
+              <motion.article
+                key={item.number}
                 variants={fadeUp}
-                whileHover={{
-                  scale: 1.02,
-                  y: -6,
-                }}
-                className="rounded-3xl bg-white p-8 shadow-sm"
+                className="grid gap-4 border-t border-white/15 py-8 md:grid-cols-[90px_0.8fr_1.2fr] md:items-center"
               >
+                <span className="text-3xl font-black text-[#FFD43A]">
+                  {item.number}
+                </span>
 
-                <div className="flex items-center justify-between">
-
-                  <span className="text-sm font-black text-[#062DA0]">
-                    {number}
-                  </span>
-
-                  <span className="h-3 w-3 rounded-full bg-[#062DA0]" />
-
-                </div>
-
-                <h3 className="mt-10 text-2xl font-black">
-                  {title}
+                <h3 className="text-2xl font-black md:text-3xl">
+                  {item.title}
                 </h3>
 
-                <p className="mt-4 leading-7 text-gray-500">
-                  {text}
+                <p className="max-w-2xl leading-7 text-white/55">
+                  {item.description}
                 </p>
-
-              </motion.div>
-
+              </motion.article>
             ))}
-
           </motion.div>
-
         </div>
-
       </section>
 
-
-      {/* =====================================================
-          NUMBERS
-      ===================================================== */}
-
-      <section className="bg-white px-6 py-24 md:py-32">
-
+      {/* 6. TESTIMONIALS */}
+      <section
+        id="testimonials"
+        className="px-6 py-24 md:py-32 scroll-mt-24"
+      >
         <div className="mx-auto max-w-7xl">
-
           <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="text-center"
+            className="mx-auto max-w-3xl text-center"
           >
-
-            <p className="text-sm font-bold uppercase tracking-[0.3em] text-[#062DA0]">
-              At A Glance
+            <p className="text-sm font-bold uppercase tracking-[0.25em] text-[#062DA0]">
+              06 — Testimonials
             </p>
 
-            <h2 className="mt-5 text-5xl font-black md:text-6xl">
-              The Easy Academics
+            <h2 className="mt-5 text-5xl font-black leading-tight md:text-7xl">
+              Stories of learning
               <br />
-              <span className="text-[#062DA0]">
-                ecosystem.
-              </span>
+              and <span className="text-[#062DA0]">progress.</span>
             </h2>
 
+            <p className="mt-6 text-lg leading-8 text-gray-500">
+              Hear from students and parents about their experiences with
+              Easy Academics.
+            </p>
           </motion.div>
-
 
           <motion.div
             variants={stagger}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
-            className="mt-20 grid grid-cols-2 gap-y-16 md:grid-cols-4"
+            viewport={{ once: true, amount: 0.2 }}
+            className="mt-14 grid gap-6 lg:grid-cols-3"
           >
-
-            {[
-              ["9–12", "Classes"],
-              ["03", "Streams"],
-              ["CBSE", "Board"],
-              ["CUET", "Preparation"],
-            ].map(([number, label]) => (
-
-              <motion.div
-                key={label}
+            {testimonials.map((item) => (
+              <motion.article
+                key={item.number}
                 variants={fadeUp}
-                className="text-center"
+                whileHover={{ y: -7 }}
+                className="rounded-3xl border border-gray-100 bg-white p-8 shadow-sm transition-shadow duration-300 hover:shadow-xl md:p-9"
               >
+                <span className="text-6xl font-black leading-none text-[#FFD43A]">
+                  “
+                </span>
 
-                <p className="text-5xl font-black text-[#062DA0] md:text-6xl">
-                  {number}
+                <p className="mt-4 min-h-28 leading-8 text-gray-600">
+                  {item.quote}
                 </p>
 
-                <p className="mt-3 text-sm font-medium uppercase tracking-wider text-gray-500">
-                  {label}
-                </p>
-
-              </motion.div>
-
-            ))}
-
-          </motion.div>
-
-        </div>
-
-      </section>
-
-
-      {/* =====================================================
-          FOUNDER
-      ===================================================== */}
-
-      <section className="relative overflow-hidden bg-[#062DA0] px-6 py-24 md:py-32">
-
-        <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-2 lg:items-center">
-
-          <motion.div
-            variants={fadeLeft}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            className="relative flex justify-center"
-          >
-
-            <motion.div
-              animate={{
-                rotate: [0, 5, 0, -5, 0],
-              }}
-              transition={{
-                duration: 8,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="flex h-[360px] w-[360px] items-center justify-center rounded-full bg-[#FFD43A] md:h-[440px] md:w-[440px]"
-            >
-
-              <div className="flex h-[280px] w-[280px] items-center justify-center rounded-full bg-black text-center md:h-[350px] md:w-[350px]">
-
-                <div>
-
-                  <p className="text-sm font-bold uppercase tracking-[0.3em] text-[#FFD43A]">
-                    Founder
+                <div className="mt-7 border-t border-gray-100 pt-6">
+                  <p className="font-black text-[#062DA0]">
+                    {item.name}
                   </p>
 
-                  <h3 className="mt-4 text-5xl font-black text-white">
-                    Umang
-                    <br />
-                    Khatri
-                  </h3>
-
+                  <p className="mt-1 text-sm text-gray-400">
+                    {item.detail}
+                  </p>
                 </div>
-
-              </div>
-
-            </motion.div>
-
+              </motion.article>
+            ))}
           </motion.div>
-
-
-          <motion.div
-            variants={fadeRight}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-          >
-
-            <p className="text-sm font-bold uppercase tracking-[0.3em] text-[#FFD43A]">
-              The Founder
-            </p>
-
-            <h2 className="mt-6 text-5xl font-black leading-tight text-white md:text-6xl">
-
-              Building an institution
-              <br />
-
-              <span className="text-[#FFD43A]">
-                with purpose.
-              </span>
-
-            </h2>
-
-            <p className="mt-8 text-lg leading-8 text-white/65">
-              Easy Academics was founded by Umang Khatri with the vision of
-              creating a learning environment where academic excellence,
-              discipline and individual guidance come together.
-            </p>
-
-            <p className="mt-5 text-lg leading-8 text-white/65">
-              The goal is to help students discover their potential,
-              strengthen their fundamentals and move confidently towards
-              their future.
-            </p>
-
-          </motion.div>
-
         </div>
-
       </section>
-
-
-      {/* =====================================================
-          CTA
-      ===================================================== */}
-
-      <section className="relative overflow-hidden bg-black px-6 py-24 text-center md:py-32">
-
-        <motion.div
-          animate={{
-            scale: [1, 1.15, 1],
-            opacity: [0.15, 0.3, 0.15],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#062DA0] blur-3xl"
-        />
-
-        <div className="relative z-10 mx-auto max-w-4xl">
-
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-
-            <p className="text-sm font-bold uppercase tracking-[0.3em] text-[#FFD43A]">
-              Your Next Chapter
-            </p>
-
-            <h2 className="mt-6 text-5xl font-black leading-tight text-white md:text-7xl">
-
-              Your future deserves
-              <br />
-
-              <span className="text-[#FFD43A]">
-                the right beginning.
-              </span>
-
-            </h2>
-
-            <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-white/50">
-              Discover the Easy Academics approach and take the next step
-              towards your academic goals.
-            </p>
-
-            <Link
-              href="/contact-us"
-              className="mt-10 inline-flex rounded-full bg-[#FFD43A] px-9 py-4 font-bold text-black transition hover:-translate-y-1 hover:bg-white"
-            >
-              Get In Touch
-            </Link>
-
-          </motion.div>
-
-        </div>
-
-      </section>
-
-
-      {/* =====================================================
-          FOOTER
-      ===================================================== */}
-
-      <footer className="bg-white px-6 py-12">
-
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 md:flex-row md:items-center">
-
-          <div className="flex items-center">
-
-            <Image
-              src="/easy-academics-logo.png"
-              alt="Easy Academics"
-              width={160}
-              height={70}
-              className="w-[130px]"
-            />
-
-          </div>
-
-          <p className="text-sm text-gray-500">
-            © 2026 Easy Academics. All rights reserved.
-          </p>
-
-          <p className="text-sm font-medium">
-            Udaipur, Rajasthan
-          </p>
-
-        </div>
-
-      </footer>
-
     </main>
   );
 }
