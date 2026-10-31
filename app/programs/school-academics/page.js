@@ -4,6 +4,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 const courses = [
   {
@@ -100,9 +101,14 @@ function Reveal({ children, className = "" }) {
 export default function SchoolAcademicsPage() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-white text-black">
+
+      {/* HEADER */}
       <Header />
 
-      {/* HERO */}
+      {/* ========================================
+          HERO
+      ======================================== */}
+
       <section className="relative overflow-hidden bg-white">
         <div className="pointer-events-none absolute -right-24 top-10 h-72 w-72 rounded-full border-[35px] border-[#FFD43A]/30" />
 
@@ -150,6 +156,7 @@ export default function SchoolAcademicsPage() {
           </motion.div>
 
           {/* HERO VISUAL */}
+
           <motion.div
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
@@ -177,6 +184,7 @@ export default function SchoolAcademicsPage() {
                 <span className="text-sm text-white/70">
                   Classes 9th–12th
                 </span>
+
                 <div className="h-10 w-10 rounded-full bg-[#FFD43A]" />
               </div>
             </div>
@@ -184,7 +192,10 @@ export default function SchoolAcademicsPage() {
         </div>
       </section>
 
-      {/* INTRODUCTION */}
+      {/* ========================================
+          INTRODUCTION
+      ======================================== */}
+
       <section className="bg-[#FFD43A] py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <Reveal>
@@ -201,8 +212,14 @@ export default function SchoolAcademicsPage() {
         </div>
       </section>
 
-      {/* COURSES */}
-      <section id="courses" className="scroll-mt-28 bg-white py-24">
+      {/* ========================================
+          COURSES
+      ======================================== */}
+
+      <section
+        id="courses"
+        className="scroll-mt-28 bg-white py-24"
+      >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <Reveal>
             <p className="text-sm font-black uppercase tracking-[0.2em] text-[#062DA0]">
@@ -237,6 +254,7 @@ export default function SchoolAcademicsPage() {
                   <span className="text-4xl font-black text-[#062DA0] group-hover:text-[#FFD43A]">
                     {course.number}
                   </span>
+
                   <span className="text-2xl">↗</span>
                 </div>
 
@@ -277,7 +295,10 @@ export default function SchoolAcademicsPage() {
         </div>
       </section>
 
-      {/* WHY CHOOSE US */}
+      {/* ========================================
+          WHY CHOOSE US
+      ======================================== */}
+
       <section className="bg-[#F8F8F8] py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <Reveal>
@@ -327,7 +348,10 @@ export default function SchoolAcademicsPage() {
         </div>
       </section>
 
-      {/* LEARNING APPROACH */}
+      {/* ========================================
+          LEARNING APPROACH
+      ======================================== */}
+
       <section className="bg-[#062DA0] py-24 text-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <Reveal>
@@ -371,7 +395,10 @@ export default function SchoolAcademicsPage() {
         </div>
       </section>
 
-      {/* CONTACT CTA */}
+      {/* ========================================
+          CONTACT CTA
+      ======================================== */}
+
       <section className="bg-[#FFD43A] py-20">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-10 px-6 lg:flex-row lg:items-center lg:px-8">
           <Reveal>
@@ -398,33 +425,12 @@ export default function SchoolAcademicsPage() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="bg-black py-12 text-white">
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 px-6 md:flex-row md:items-center lg:px-8">
-          <div>
-            <p className="text-xl font-black">
-              EASY{" "}
-              <span className="text-[#FFD43A]">
-                ACADEMICS
-              </span>
-            </p>
+      {/* ========================================
+          SHARED FOOTER
+      ======================================== */}
 
-            <p className="mt-3 text-sm text-white/60">
-              Udaipur, Rajasthan
-            </p>
-          </div>
+      <Footer />
 
-          <div className="flex gap-6 text-sm text-white/70">
-            <Link href="/">Home</Link>
-            <Link href="/about-us">About</Link>
-            <Link href="/contact">Contact</Link>
-          </div>
-
-          <p className="text-sm text-white/50">
-            © 2026 Easy Academics
-          </p>
-        </div>
-      </footer>
     </main>
   );
 }

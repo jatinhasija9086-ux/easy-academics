@@ -4,6 +4,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 const exams = [
   {
@@ -416,33 +417,8 @@ export default function EntranceExamsPage() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="bg-black py-12 text-white">
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 px-6 md:flex-row md:items-center lg:px-8">
-          <div>
-            <p className="text-xl font-black">
-              EASY{" "}
-              <span className="text-[#FFD43A]">
-                ACADEMICS
-              </span>
-            </p>
-
-            <p className="mt-3 text-sm text-white/60">
-              Udaipur, Rajasthan
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-6 text-sm text-white/70">
-            <Link href="/">Home</Link>
-            <Link href="/about-us">About</Link>
-            <Link href="/contact">Contact</Link>
-          </div>
-
-          <p className="text-sm text-white/50">
-            © 2026 Easy Academics
-          </p>
-        </div>
-      </footer>
+      {/* SHARED FOOTER */}
+      <Footer />
     </main>
   );
 }

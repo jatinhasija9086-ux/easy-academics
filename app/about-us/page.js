@@ -3,6 +3,7 @@
 
 import { motion } from "framer-motion";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 35 },
@@ -39,6 +40,7 @@ const stagger = {
 };
 
 /* FACULTY — 8 CARDS, NO NAMES */
+
 const faculty = [
   { number: "01", subject: "ACCOUNTANCY SPECIALIST", image: "/images/faculty-1.jpg" },
   { number: "02", subject: "BUSINESS STUDIES SPECIALIST", image: "/images/faculty-2.jpg" },
@@ -54,38 +56,32 @@ const benefits = [
   {
     number: "01",
     title: "Conceptual Clarity",
-    description:
-      "Understand the fundamentals instead of relying only on memorisation.",
+    description: "Understand the fundamentals instead of relying only on memorisation.",
   },
   {
     number: "02",
     title: "Personal Attention",
-    description:
-      "An encouraging environment where questions and individual learning needs matter.",
+    description: "An encouraging environment where questions and individual learning needs matter.",
   },
   {
     number: "03",
     title: "Structured Learning",
-    description:
-      "Follow a learning plan that supports consistency and academic progress.",
+    description: "Follow a learning plan that supports consistency and academic progress.",
   },
   {
     number: "04",
     title: "Regular Practice",
-    description:
-      "Reinforce understanding through revision, questions and application.",
+    description: "Reinforce understanding through revision, questions and application.",
   },
   {
     number: "05",
     title: "Progress Tracking",
-    description:
-      "Identify areas for improvement and use feedback to guide the next steps.",
+    description: "Identify areas for improvement and use feedback to guide the next steps.",
   },
   {
     number: "06",
     title: "Confidence Building",
-    description:
-      "Develop the confidence to approach subjects and examinations with clarity.",
+    description: "Develop the confidence to approach subjects and examinations with clarity.",
   },
 ];
 
@@ -93,48 +89,41 @@ const approach = [
   {
     number: "01",
     title: "Understand",
-    description:
-      "Start with the student's learning needs, existing knowledge and academic goals.",
+    description: "Start with the student's learning needs, existing knowledge and academic goals.",
   },
   {
     number: "02",
     title: "Explain",
-    description:
-      "Break down topics into understandable concepts and build a strong foundation.",
+    description: "Break down topics into understandable concepts and build a strong foundation.",
   },
   {
     number: "03",
     title: "Practice",
-    description:
-      "Apply what has been learned through questions, exercises and revision.",
+    description: "Apply what has been learned through questions, exercises and revision.",
   },
   {
     number: "04",
     title: "Improve",
-    description:
-      "Review progress, resolve doubts and focus on areas that need further attention.",
+    description: "Review progress, resolve doubts and focus on areas that need further attention.",
   },
 ];
 
 const testimonials = [
   {
     number: "01",
-    quote:
-      "Add a genuine student testimonial here describing their experience at Easy Academics.",
+    quote: "Add a genuine student testimonial here describing their experience at Easy Academics.",
     name: "Student Name",
     detail: "Course or Class",
   },
   {
     number: "02",
-    quote:
-      "Add a genuine parent testimonial here describing their child's learning experience.",
+    quote: "Add a genuine parent testimonial here describing their child's learning experience.",
     name: "Parent Name",
     detail: "Parent",
   },
   {
     number: "03",
-    quote:
-      "Add a genuine student testimonial here about teaching, concept clarity or academic support.",
+    quote: "Add a genuine student testimonial here about teaching, concept clarity or academic support.",
     name: "Student Name",
     detail: "Course or Class",
   },
@@ -143,13 +132,17 @@ const testimonials = [
 export default function AboutUs() {
   return (
     <main className="overflow-hidden bg-white text-black">
+
       {/* WEBSITE HEADER */}
       <Header />
 
-      {/* 1. OUR STORY */}
+      {/* ========================================
+          1. OUR STORY
+      ======================================== */}
+
       <section
         id="our-story"
-        className="relative overflow-hidden bg-[#062DA0] px-6 pb-24 pt-24 text-white md:pb-32 md:pt-32 scroll-mt-24"
+        className="relative scroll-mt-24 overflow-hidden bg-[#062DA0] px-6 pb-24 pt-24 text-white md:pb-32 md:pt-32"
       >
         <motion.div
           animate={{ rotate: 360 }}
@@ -257,10 +250,13 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* 2. FOUNDER */}
+      {/* ========================================
+          2. FOUNDER
+      ======================================== */}
+
       <section
         id="founder"
-        className="px-6 py-24 md:py-32 scroll-mt-24"
+        className="scroll-mt-24 px-6 py-24 md:py-32"
       >
         <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
           <motion.div
@@ -327,10 +323,13 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* 3. FACULTY */}
+      {/* ========================================
+          3. FACULTY
+      ======================================== */}
+
       <section
         id="faculty"
-        className="bg-[#F7F8FC] px-6 py-24 md:py-32 scroll-mt-24"
+        className="scroll-mt-24 bg-[#F7F8FC] px-6 py-24 md:py-32"
       >
         <div className="mx-auto max-w-7xl">
           <motion.div
@@ -404,10 +403,13 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* 4. WHY EASY ACADEMICS? */}
+      {/* ========================================
+          4. WHY EASY ACADEMICS?
+      ======================================== */}
+
       <section
         id="why-easy-academics"
-        className="bg-[#FFD43A] px-6 py-24 md:py-32 scroll-mt-24"
+        className="scroll-mt-24 bg-[#FFD43A] px-6 py-24 md:py-32"
       >
         <div className="mx-auto max-w-7xl">
           <motion.div
@@ -466,10 +468,13 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* 5. OUR APPROACH */}
+      {/* ========================================
+          5. OUR APPROACH
+      ======================================== */}
+
       <section
         id="our-approach"
-        className="relative overflow-hidden bg-black px-6 py-24 text-white md:py-32 scroll-mt-24"
+        className="relative scroll-mt-24 overflow-hidden bg-black px-6 py-24 text-white md:py-32"
       >
         <div className="pointer-events-none absolute -left-40 top-20 h-96 w-96 rounded-full bg-[#062DA0]/30 blur-3xl" />
 
@@ -530,10 +535,13 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* 6. TESTIMONIALS */}
+      {/* ========================================
+          6. TESTIMONIALS
+      ======================================== */}
+
       <section
         id="testimonials"
-        className="px-6 py-24 md:py-32 scroll-mt-24"
+        className="scroll-mt-24 px-6 py-24 md:py-32"
       >
         <div className="mx-auto max-w-7xl">
           <motion.div
@@ -595,6 +603,13 @@ export default function AboutUs() {
           </motion.div>
         </div>
       </section>
+
+      {/* ========================================
+          SHARED FOOTER
+      ======================================== */}
+
+      <Footer />
+
     </main>
   );
 }
