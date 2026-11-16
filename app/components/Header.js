@@ -16,9 +16,10 @@ const aboutSections = [
 ];
 
 const programItems = [
-  ["School Academics", "/programs/school-academics"],
+  ["Secondary Education", "/programs/school-academics"],
   ["Commerce", "/programs/commerce"],
   ["Arts", "/programs/arts"],
+  ["Cambridge", "/programs/cambridge"],
   ["Entrance Exams", "/programs/entrance-exams"],
   ["College & Universities", "/programs/college-universities"],
 ];

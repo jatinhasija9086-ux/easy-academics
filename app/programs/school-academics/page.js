@@ -119,7 +119,7 @@ export default function SchoolAcademicsPage() {
             transition={{ duration: 0.8 }}
           >
             <p className="mb-6 text-sm font-black uppercase tracking-[0.2em] text-[#062DA0]">
-              EASY ACADEMICS / SCHOOL ACADEMICS
+              EASY ACADEMICS / SECONDARY EDUCATION
             </p>
 
             <h1 className="text-5xl font-black leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl">
